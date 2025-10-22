@@ -1,9 +1,35 @@
-function App(): React.JSX.Element {
+import { 
+  Content, 
+  DraggableTopBar, 
+  RootLayout, 
+  Sidebar, 
+  ActionButtonsRow, 
+  MarkdownEditor, 
+  FloatingNoteTitle, 
+  NotePreviewList 
+} from "@/components"
+import { useRef } from "react"
+
+const App = (): React.JSX.Element => {
+  const contentContainerRef = useRef<HTMLDivElement>(null)
+
+  const resetScroll = () => {
+    contentContainerRef.current?.scrollTo(0, 0)
+  }
+
   return (
     <>
-    <div className="flex justify-center items-center h-screen">
-      <h1 className="text-3xl font-bold text-blue-500">hola mundo</h1>
-    </div>
+    <DraggableTopBar />
+    <RootLayout>
+      <Sidebar className="p-2">
+        <ActionButtonsRow className="flex justify-between mt-1" />
+        <NotePreviewList className="mt-3 space-y-1" onSelect={resetScroll} />
+      </Sidebar>
+      <Content ref={contentContainerRef} className="border-l border-border">
+        <FloatingNoteTitle className="pt-2" />
+        <MarkdownEditor />
+      </Content>
+    </RootLayout>
     </>
   )
 }
