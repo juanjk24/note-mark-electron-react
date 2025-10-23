@@ -11,9 +11,9 @@ export const NewNoteButton = ({ ...props }: ActionButtonProps) => {
   }
 
   return (
-    <ActionButton className='flex justify-center items-center gap-1 bg-primary hover:bg-primary/90 px-2 py-1' onClick={handleCreation} {...props}>
+    <ActionButton className='w-full flex justify-center items-center gap-1 bg-primary hover:bg-primary/90 px-2 py-1 mr-2' onClick={handleCreation} {...props}>
       <LuPlus  className="w-4 h-4" />
-      <span className="text-sm text-primary-foreground font-semibold">Crear nueva nota</span>
+      <span className="text-sm text-primary-foreground font-semibold">Crear Nueva Nota</span>
     </ActionButton>
   )
 }

@@ -13,6 +13,9 @@ try {
     writeNote: (...args: Parameters<WriteNote>) => ipcRenderer.invoke('writeNote', ...args),
     createNote: (...args: Parameters<CreateNote>) => ipcRenderer.invoke('createNote', ...args),
     deleteNote: (...args: Parameters<DeleteNote>) => ipcRenderer.invoke('deleteNote', ...args),
+    closeWindow: () => ipcRenderer.invoke('window-close'),
+    resizeWindow: () => ipcRenderer.invoke('window-resize'),
+    minimizeWindow: () => ipcRenderer.invoke('window-minimize'),
   })
 } catch (error) {
   console.error(error)

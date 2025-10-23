@@ -6,7 +6,8 @@ import {
   ActionButtonsRow, 
   MarkdownEditor, 
   FloatingNoteTitle, 
-  NotePreviewList 
+  NotePreviewList, 
+  WindowButtonRow
 } from "@/components"
 import { useRef } from "react"
 
@@ -21,14 +22,15 @@ const App = (): React.JSX.Element => {
     <>
     <DraggableTopBar />
     <RootLayout>
-      <Sidebar className="p-2">
-        <ActionButtonsRow className="flex justify-between mt-1" />
-        <NotePreviewList className="mt-3 space-y-1" onSelect={resetScroll} />
-      </Sidebar>
       <Content ref={contentContainerRef} className="border-l border-border">
         <FloatingNoteTitle className="pt-2" />
         <MarkdownEditor />
       </Content>
+      <Sidebar className="p-2 pt-0 border border-border">
+        <WindowButtonRow />
+        <ActionButtonsRow className="flex justify-between mt-1" />
+        <NotePreviewList className="mt-3 space-y-1" onSelect={resetScroll} />
+      </Sidebar>
     </RootLayout>
     </>
   )
